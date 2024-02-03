@@ -1,16 +1,3 @@
-# DirectAdmin-1.62.4
-DirectAdmin Nulled
-#### Install Centos 7:
-```
-yum -y install nano wget perl;wget --no-check-certificate https://raw.githubusercontent.com/puarudz/v4Panel-1.62.4/main/setup.sh;chmod +x setup.sh;sed -i 's/\r//' setup.sh;./setup.sh
-```
-#### Auto Active (Only eth0):
-```
-wget --no-check-certificate https://raw.githubusercontent.com/puarudz/v4Panel-1.62.4/main/active.sh;chmod -R 777 active.sh;./active.sh
-```
-
-#### Manual Active:
-```
 firewall-cmd --zone=public --add-port=2222/tcp --permanent
 firewall-cmd --zone=public --add-port=21/tcp --permanent
 firewall-cmd --zone=public --add-port=80/tcp --permanent
@@ -31,13 +18,3 @@ echo 'NETMASK=255.0.0.0' >> /etc/sysconfig/network-scripts/ifcfg-eth0:100
 service network restart
 /usr/bin/perl -pi -e 's/^ethernet_dev=.*/ethernet_dev=eth0:100/' /usr/local/directadmin/conf/directadmin.conf
 service directadmin start
-```
-
-
-#### Update Mirror Centos 7:
-```
-wget -O /etc/yum/pluginconf.d/fastestmirror.conf --no-check-certificate https://raw.githubusercontent.com/puarudz/v4Panel-1.62.4/main/fastestmirror.conf
-wget -O /etc/yum.repos.d/CentOS-Base.repo --no-check-certificate https://raw.githubusercontent.com/puarudz/v4Panel-1.62.4/main/CentOS-Base.repo
-sudo yum clean all
-sudo yum repolist -v
-```
